@@ -689,6 +689,12 @@ namespace RblxSpoofer
         {
             Graphics g = e.Graphics;
             Rectangle full = new Rectangle(0, 0, ClientSize.Width, ClientSize.Height);
+            // When minimized the client area is 0x0 — gradient/path brushes throw on a zero rect.
+            if (full.Width <= 0 || full.Height <= 0)
+            {
+                using (SolidBrush sb = new SolidBrush(Theme.Bg)) g.FillRectangle(sb, full);
+                return;
+            }
             using (LinearGradientBrush b = new LinearGradientBrush(full, Theme.Bg, Theme.BgDeep, LinearGradientMode.Vertical))
                 g.FillRectangle(b, full);
 
