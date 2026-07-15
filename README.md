@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <img src="assets/main.png" width="420" alt="RBLX Spoofer main window">
+  <img src="assets/hero.png" width="420" alt="RBLX Spoofer main window">
 </p>
 
 ---
