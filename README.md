@@ -205,6 +205,6 @@ This tool is **not affiliated with, endorsed by, or connected to Roblox Corporat
 
 ## Credits
 
-Made by **8832** · [fantascript.xyz](https://fantascript.xyz)
+Made by [**8832**](https://discord.gg/P9dEKq5Emd) · [fantascript.xyz](https://fantascript.xyz)
 
 Licensed under the [MIT License](LICENSE).
