@@ -456,7 +456,7 @@ namespace RblxSpoofer
             resultCardBaseBottom = y + 178;
             y += 178 + 16;
 
-            creditLabel = CenteredLabel("by 8832  " + ((char)0x2022) + "  fantascript.xyz", 8.5f, Theme.Faint, y, 16);
+            creditLabel = BuildCredit(y);
             Controls.Add(creditLabel);
             y += 16 + PAD;
 
@@ -523,6 +523,36 @@ namespace RblxSpoofer
             l.Size = new Size(W, h);
             l.Location = new Point(0, y);
             return l;
+        }
+
+        // Clickable credit: "8832" -> Discord, "fantascript.xyz" -> site.
+        Label BuildCredit(int y)
+        {
+            string txt = "by 8832  " + ((char)0x2022) + "  fantascript.xyz";
+            LinkLabel l = new LinkLabel();
+            l.Text = txt;
+            l.Font = new Font("Segoe UI", 8.5f);
+            l.AutoSize = false;
+            l.Size = new Size(W, 16);
+            l.Location = new Point(0, y);
+            l.TextAlign = ContentAlignment.MiddleCenter;
+            l.BackColor = Color.Transparent;
+            l.ForeColor = Theme.Faint;
+            l.LinkColor = Theme.Muted;
+            l.ActiveLinkColor = Theme.Accent;
+            l.VisitedLinkColor = Theme.Muted;
+            l.LinkBehavior = LinkBehavior.HoverUnderline;
+            l.Links.Clear();
+            l.Links.Add(txt.IndexOf("8832"), 4, "https://discord.gg/P9dEKq5Emd");
+            l.Links.Add(txt.IndexOf("fantascript.xyz"), "fantascript.xyz".Length, "https://fantascript.xyz");
+            l.LinkClicked += new LinkLabelLinkClickedEventHandler(OnCreditLink);
+            return l;
+        }
+
+        void OnCreditLink(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // Open via explorer.exe so the URL launches in the user's normal (non-admin) browser.
+            try { Process.Start("explorer.exe", e.Link.LinkData.ToString()); } catch { }
         }
 
         Label SectionLabel(string text, Color color, int y)
