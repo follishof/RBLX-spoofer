@@ -1,0 +1,16 @@
+# build artifacts
+*.pdb
+*.obj
+*.tmp
+
+# keep RobloxSpoofer.exe tracked so non-technical users can grab it,
+# but ignore any stray test builds
+RblxTest.exe
+sqltest*.exe
+
+# OS junk
+Thumbs.db
+desktop.ini
+
+# outdated CLI prototype, kept locally but not published
+legacy/
